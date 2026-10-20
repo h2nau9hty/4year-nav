@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>4year 资源导航 · 多端适配预览</title>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;
+    background:radial-gradient(120% 120% at 50% 0%,#2a2350 0%,#15122b 60%,#0f0d1c 100%);
+    color:#fff; min-height:100vh;
+  }
+  .head{text-align:center; padding:30px 16px 6px;}
+  .head h1{margin:0; font-size:22px; font-weight:800; letter-spacing:1px;}
+  .head p{color:#b9b4d0; font-size:13px; margin:8px 0 0; line-height:1.6;}
+  .stage{display:flex; flex-wrap:wrap; gap:30px; justify-content:center; align-items:flex-start; padding:24px 16px 48px;}
+  .device{background:linear-gradient(160deg,#26203f,#171327); border-radius:30px; padding:16px; box-shadow:0 24px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.06);}
+  .device .label{text-align:center; font-size:14px; font-weight:800; margin-bottom:12px; color:#FF8FAB;}
+  .device .label small{display:block; color:#9b95b8; font-weight:600; font-size:11px; margin-top:3px;}
+  .frame{border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 10px 30px rgba(0,0,0,.35);}
+  .phone .frame{width:375px; height:760px;}
+  .desktop .frame{width:900px; height:640px;}
+  iframe{width:100%; height:100%; border:0; display:block;}
+  @media (max-width:980px){
+    .desktop .frame{width:92vw; height:600px;}
+    .phone .frame{width:320px; height:680px;}
+  }
+  @media (max-width:380px){
+    .phone .frame{width:90vw; height:640px;}
+  }
+</style>
+</head>
+<body>
+  <div class="head">
+    <h1>4year 资源导航 · 多端适配预览</h1>
+    <p>左侧为手机端（375px），右侧为电脑端（900px），均实时加载同一份 <b>index.html</b>。<br/>
+       容器宽度与卡片列数随屏幕自动切换：手机 2 列后台 / 桌面 4 列后台，前端卡片在桌面端自动多列排布。</p>
+  </div>
+  <div class="stage">
+    <div class="device phone">
+      <div class="label">📱 手机端<small>375px · 单列前端 / 2 列后台</small></div>
+      <div class="frame"><iframe src="index.html" title="手机端预览"></iframe></div>
+    </div>
+    <div class="device desktop">
+      <div class="label">💻 电脑端<small>900px · 2 列前端 / 4 列后台</small></div>
+      <div class="frame"><iframe src="index.html" title="电脑端预览"></iframe></div>
+    </div>
+  </div>
+</body>
+</html>
