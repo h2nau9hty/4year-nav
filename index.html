@@ -264,9 +264,14 @@
           </div>
         </div>
       </a>
-
-      <!-- 2. 商单管理系统 -->
-      <a class="card" href="https://xjj-haitao.app.workbuddy.host/" target="_blank" rel="noopener noreferrer">
+    <div class="card" onclick="openYt()">
+      <span class="tag">网盘</span>
+      <div class="row">
+        <div class="icon i-tools">🖼️</div>
+        <div><h3>原图取图</h3><p>夸克网盘原图直取（点击输密令）</p></div>
+      </div>
+    </div>
+<a class="card" href="https://xjj-haitao.app.workbuddy.host/" target="_blank" rel="noopener noreferrer">
         <span class="tag">后台</span>
         <div class="row">
           <div class="icon i-biz">💼</div>
@@ -276,9 +281,14 @@
           </div>
         </div>
       </a>
-
-      <!-- 3. Potplayer 双源 -->
-      <div class="card">
+<a class="card" href="https://image-palette-tool.app.workbuddy.host/?sharecode=YBUQ2RP6YX" target="_blank" rel="noopener noreferrer">
+      <span class="tag">工具</span>
+      <div class="row">
+        <div class="icon i-tools">🎨</div>
+        <div><h3>色板提取</h3><p>图片配色方案一键提取</p></div>
+      </div>
+    </a>
+<div class="card">
         <div class="row">
           <div class="icon i-play">🎬</div>
           <div>
@@ -291,39 +301,7 @@
           <a class="btn baidu" href="https://pan.baidu.com/s/1Zx_wd2V4Xn8UN5HBAMBe0g?pwd=MTQQ" target="_blank" rel="noopener noreferrer">百度下载</a>
         </div>
       </div>
-
-      <!-- 4. 影视资源 -->
-      <a class="card movie" href="https://www.kdocs.cn/l/cdG6BflSUAvJ" target="_blank" rel="noopener noreferrer">
-        <span class="tag live">实时更新</span>
-        <div class="row">
-          <div class="icon i-movie">🍿</div>
-          <div>
-            <h3>影视资源库</h3>
-            <p>电影 / 美剧 / 英剧 / 日剧 / 韩剧 / 港剧 / 短剧 / 动漫</p>
-          </div>
-        </div>
-        <div class="chips">
-          <span class="chip">电影</span>
-          <span class="chip">美剧</span>
-          <span class="chip">英剧</span>
-          <span class="chip">日剧</span>
-          <span class="chip">韩剧</span>
-          <span class="chip">港剧</span>
-          <span class="chip">短剧</span>
-          <span class="chip">动漫</span>
-        </div>
-        <div class="live-note"><span class="dot"></span>资源实时更新中，点击进入查看最新合集</div>
-      </a>
-    
-    <a class="card" href="https://image-palette-tool.app.workbuddy.host/?sharecode=YBUQ2RP6YX" target="_blank" rel="noopener noreferrer">
-      <span class="tag">工具</span>
-      <div class="row">
-        <div class="icon i-tools">🎨</div>
-        <div><h3>色板提取</h3><p>图片配色方案一键提取</p></div>
-      </div>
-    </a>
-
-    <a class="card" href="https://mojie.app/register?aff=DpR7zJlY" target="_blank" rel="noopener noreferrer">
+<a class="card" href="https://mojie.app/register?aff=DpR7zJlY" target="_blank" rel="noopener noreferrer">
       <span class="tag">工具</span>
       <div class="row">
         <div class="icon i-tools">🪜</div>
@@ -451,7 +429,18 @@
   </div>
 
   <!-- 后台口令弹窗 -->
-  <div class="modal" id="codeModal" aria-hidden="true">
+  
+<div class="modal" id="ytModal" aria-hidden="true">
+  <div class="modal-mask" onclick="closeYt()"></div>
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeYt()">×</button>
+    <div class="qr-title">请输入密令</div>
+    <input class="code-input" id="ytInput" type="password" placeholder="密令" autocomplete="off">
+    <button class="code-submit" id="ytSubmit">确定</button>
+    <div class="code-err" id="ytErr"></div>
+  </div>
+</div>
+<div class="modal" id="codeModal" aria-hidden="true">
     <div class="modal-mask" id="codeMask"></div>
     <div class="modal-card" role="dialog" aria-modal="true" aria-label="后台口令">
       <button class="modal-close" id="codeClose" type="button" aria-label="关闭">✕</button>
@@ -511,6 +500,25 @@
       codeInput.addEventListener('keydown',function(e){ if(e.key==='Enter') document.getElementById('codeSubmit').click(); });
       document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeCode(); });
     })();
-  </script>
+  
+function openYt(){
+  var m=document.getElementById('ytModal');
+  m.classList.add('show'); m.setAttribute('aria-hidden','false');
+  var inp=document.getElementById('ytInput');
+  inp.value=''; document.getElementById('ytErr').textContent=''; inp.focus();
+}
+function closeYt(){
+  var m=document.getElementById('ytModal');
+  m.classList.remove('show'); m.setAttribute('aria-hidden','true');
+}
+function submitYt(){
+  var inp=document.getElementById('ytInput');
+  var err=document.getElementById('ytErr');
+  if(inp.value==='4269'){ window.location.href='https://pan.quark.cn/s/51a56aba6a42'; }
+  else { err.textContent='密令错误，请重试'; inp.value=''; inp.focus(); }
+}
+document.getElementById('ytSubmit').addEventListener('click', submitYt);
+document.getElementById('ytInput').addEventListener('keydown', function(e){ if(e.key==='Enter'){ submitYt(); } });
+</script>
 </body>
 </html>
